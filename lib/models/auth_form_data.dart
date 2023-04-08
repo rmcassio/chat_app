@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'package:flutter/material.dart';
 
 enum AuthMode { signup, login }
 
@@ -6,7 +6,7 @@ class AuthFormData {
   String name = '';
   String email = '';
   String password = '';
-  File? image;
+  Image? image;
   AuthMode _mode = AuthMode.login;
 
   bool get isLogin {
