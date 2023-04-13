@@ -1,8 +1,10 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker_web/image_picker_web.dart';
 
 class UserImagePicker extends StatefulWidget {
-  final void Function(Image image) onImagePick;
+  final void Function(Uint8List image) onImagePick;
 
   const UserImagePicker({
     required this.onImagePick,
@@ -23,7 +25,7 @@ class _UserImagePickerState extends State<UserImagePicker> {
       setState(() {
         _image = Image.memory(pickedImage);
       });
-      widget.onImagePick(_image!);
+      widget.onImagePick(pickedImage);
     }
   }
 

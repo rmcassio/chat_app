@@ -1,13 +1,15 @@
+import 'dart:typed_data';
+
 class ChatUser {
   final String id;
   final String name;
   final String email;
-  final String imageUrl;
+  Uint8List? image;
 
   ChatUser({
     required this.id,
     required this.name,
     required this.email,
-    required this.imageUrl,
+    this.image,
   });
 }
