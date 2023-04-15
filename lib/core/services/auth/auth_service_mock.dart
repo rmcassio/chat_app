@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math';
-import 'dart:typed_data';
 
 import 'package:chat_app/core/models/chat_user.dart';
 import 'package:chat_app/core/services/auth/auth_service.dart';
