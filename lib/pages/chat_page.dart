@@ -1,7 +1,10 @@
 import 'package:chat_app/components/messages.dart';
 import 'package:chat_app/components/new_message.dart';
 import 'package:chat_app/core/services/auth/auth_service.dart';
+import 'package:chat_app/core/services/notification/chat_notification_service.dart';
+import 'package:chat_app/pages/notification_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});
@@ -12,38 +15,67 @@ class ChatPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Opper Chat'),
         actions: [
-          DropdownButton(
+          DropdownButtonHideUnderline(
+            child: DropdownButton(
+              alignment: Alignment.center,
+              items: const [
+                DropdownMenuItem(
+                  value: 'logout',
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.exit_to_app,
+                        color: Colors.black87,
+                      ),
+                      SizedBox(width: 10),
+                      Text('Sair'),
+                    ],
+                  ),
+                ),
+              ],
+              onChanged: (value) {
+                if (value == 'logout') {
+                  AuthService().logout();
+                }
+              },
+              icon: Icon(
+                Icons.more_vert,
+                color: Theme.of(context).primaryIconTheme.color,
+              ),
+            ),
+          ),
+          Stack(
             alignment: Alignment.center,
-            items: [
-              DropdownMenuItem(
-                value: 'logout',
-                child: Row(
-                  children: const [
-                    Icon(
-                      Icons.exit_to_app,
-                      color: Colors.black87,
-                    ),
-                    SizedBox(width: 10),
-                    Text('Sair'),
-                  ],
+            children: [
+              IconButton(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const NotificationPage();
+                    },
+                  ),
+                ),
+                icon: const Icon(Icons.notifications),
+              ),
+              Positioned(
+                top: 8,
+                right: 2,
+                child: CircleAvatar(
+                  backgroundColor: Colors.red.shade800,
+                  maxRadius: 10,
+                  child: Text(
+                    Provider.of<ChatNotificationService>(context).itemsCount.toString(),
+                    style: const TextStyle(fontSize: 12),
+                  ),
                 ),
               ),
             ],
-            onChanged: (value) {
-              if (value == 'logout') {
-                AuthService().logout();
-              }
-            },
-            icon: Icon(
-              Icons.more_vert,
-              color: Theme.of(context).primaryIconTheme.color,
-            ),
           ),
         ],
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: Column(
-          children: const [
+          children: [
             Expanded(child: Messages()),
             NewMessage(),
           ],
