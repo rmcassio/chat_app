@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:chat_app/components/messages.dart';
 import 'package:chat_app/components/new_message.dart';
+import 'package:chat_app/core/models/chat_notification.dart';
 import 'package:chat_app/core/services/auth/auth_service.dart';
 import 'package:chat_app/core/services/notification/chat_notification_service.dart';
 import 'package:chat_app/pages/notification_page.dart';
