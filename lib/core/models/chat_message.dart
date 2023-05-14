@@ -7,7 +7,7 @@ class ChatMessage {
 
   final String userId;
   final String userName;
-  final Uint8List userImage;
+  final Uint8List? userImage;
 
   ChatMessage({
     required this.id,
@@ -15,6 +15,6 @@ class ChatMessage {
     required this.createdAt,
     required this.userId,
     required this.userName,
-    required this.userImage,
+    this.userImage,
   });
 }

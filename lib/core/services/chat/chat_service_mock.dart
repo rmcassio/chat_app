@@ -33,7 +33,7 @@ class ChatServiceMock implements ChatService {
       createdAt: DateTime.now(),
       userId: user.id,
       userName: user.name,
-      userImage: user.image!,
+      userImage: user.image,
     );
 
     _msgs.add(newMsg);

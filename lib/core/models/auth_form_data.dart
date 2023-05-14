@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 
-import 'package:flutter/material.dart';
 
 enum AuthMode { signup, login }
 
