@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 class ChatMessage {
   final String id;
   final String text;
@@ -7,7 +5,7 @@ class ChatMessage {
 
   final String userId;
   final String userName;
-  final Uint8List? userImage;
+  final String? userImage;
 
   ChatMessage({
     required this.id,

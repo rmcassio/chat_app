@@ -59,16 +59,16 @@ class MessageBubble extends StatelessWidget {
           top: 0,
           left: isLoggedUserMessage ? null : 165,
           right: !isLoggedUserMessage ? null : 165,
-          child: _showUserImage(null, 'assets/images/avatar.png'),
+          child: _showUserImage(message.userImage, 'assets/images/avatar.png'),
         ),
       ],
     );
   }
 
-  Widget _showUserImage(Uint8List? image, String? url) {
+  Widget _showUserImage(String? image, String? url) {
     ImageProvider? provider;
     if (image != null) {
-      provider = MemoryImage(image);
+      provider = NetworkImage(image);
     } else {
       provider = const AssetImage('assets/images/avatar.png');
     }
