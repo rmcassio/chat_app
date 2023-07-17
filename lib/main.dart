@@ -11,6 +11,9 @@ void main() {
       appId: '1:100023785497:web:4a4d2efc5d18bdc5e97288',
       messagingSenderId: '100023785497',
       projectId: 'opper-chat',
+      storageBucket: 'opper-chat.appspot.com',
+      
+      
     ),
   );
   runApp(const MyApp());

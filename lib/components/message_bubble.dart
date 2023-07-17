@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:chat_app/core/models/chat_message.dart';
 import 'package:flutter/material.dart';
 
@@ -67,7 +65,7 @@ class MessageBubble extends StatelessWidget {
 
   Widget _showUserImage(String? image, String? url) {
     ImageProvider? provider;
-    if (image != null) {
+    if (image != null && image.isNotEmpty) {
       provider = NetworkImage(image);
     } else {
       provider = const AssetImage('assets/images/avatar.png');
